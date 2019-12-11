@@ -1,0 +1,1 @@
+Contains documents, images, and other necessary files for the Foodies repo
