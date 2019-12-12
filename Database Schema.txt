@@ -9,7 +9,7 @@
 DROP TABLE IF EXISTS IngredientTable;
 DROP TABLE IF EXISTS FoodIngredient;
 DROP TABLE IF EXISTS Food;
-DROP TABLE IF EXISTS Ingredient;
+
 
 CREATE TABLE Food (
 	ID integer PRIMARY KEY,
@@ -17,31 +17,30 @@ CREATE TABLE Food (
 	);
 
 CREATE TABLE FoodIngredient (
-	fiID integer NOT NULL UNIQUE REFERENCES Player(ID),
-	FoodID integer NOT NULL UNIQUE REFERENCES Player(ID),
+	fiID integer NOT NULL,
+	FoodID integer NOT NULL,
 	ingredientID integer,
 	qantity double,
 	);
 
 CREATE TABLE IngredientTable (
-	ID integer PRIMARY KEY,
+	ID integer NOT NULL,
 	name varchar(35) NOT NULL,
 	);
 
-CREATE TABLE Ingredient;
 	
 --
 
-GRANT SELECT ON FoodTable TO PUBLIC;
-GRANT SELECT ON IngredientTableTable TO PUBLIC;
+GRANT SELECT ON IngredientTable TO PUBLIC;
+GRANT SELECT ON FoodIngredient TO PUBLIC;
 GRANT SELECT ON Food TO PUBLIC;
-GRANT SELECT ON Food TO Ingredient;
+
 
 
 
 INSERT INTO FoodIngredient VALUES (1, 2, 3, 3.5);
-INSERT INTO IngredientTable VALUES (2, );
-INSERT INTO Food VALUES (1, 2, '2019-05-26 10:00:00', 19, 21);
+INSERT INTO IngredientTable VALUES (2, "Eggs");
+INSERT INTO Food VALUES (1, "Roasted Chicken");
 
 SELECT quanity FROM FoodIngredient;
 SELECT name FROM IngredientTable;
